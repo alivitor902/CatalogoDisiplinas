@@ -1,35 +1,66 @@
 # Catálogo de Disciplinas Acadêmicas
 
-Projeto Angular SPA desenvolvido para atender aos requisitos de rotas, componentização, uso de `@Input()`, uso de `@Output()` e lista de favoritos/selecionados.
-
-## Aluno
-
-ALISSON VITOR LOHN VODZICKI
+Projeto Angular SPA desenvolvido para o trabalho de faculdade do aluno **ALISSON VITOR LOHN VODZICKI**.
 
 ## Tema
 
-Catálogo de Disciplinas Acadêmicas
+Catálogo de Disciplinas Acadêmicas.
 
-## Funcionalidades
+O sistema permite visualizar disciplinas acadêmicas e adicionar disciplinas à grade de interesse do aluno.
 
-- Página Home com nome do sistema, descrição, menu e botão para acessar a listagem.
-- Página de Listagem com disciplinas acadêmicas.
-- Componente filho reutilizável `CardDisciplina`.
-- Uso de `@Input()` para enviar os dados da disciplina para o card.
-- Uso de `@Output()` para adicionar ou remover uma disciplina da grade de interesse.
-- Página Favoritos/Grade de Interesse mostrando os itens selecionados.
-- Remoção de itens da grade de interesse.
-- Página Sobre com aluno, tema, objetivo e tecnologias usadas.
-- Navegação por rotas usando `routerLink`.
-- Página `campanha-form` da Aula 8 com formulário reativo, validações e mensagens usando `@if`.
+A partir da Aula 8 e Aula 9, também foi adicionada uma área de campanhas acadêmicas com formulário, listagem, edição e exclusão.
 
-## Rotas
+## Tecnologias usadas
 
-- `/home`
-- `/itens`
-- `/favoritos`
-- `/sobre`
-- `/campanha-form`
+- Angular
+- TypeScript
+- HTML
+- CSS
+- Reactive Forms
+- LocalStorage
+
+## Rotas principais
+
+- `/home` - página inicial
+- `/itens` - listagem de disciplinas
+- `/favoritos` - grade de interesse
+- `/sobre` - informações do projeto
+- `/campanhas` - listagem de campanhas
+- `/campanha-form` - cadastro de campanha
+- `/campanha-form/:id` - edição de campanha
+
+## Funcionalidades principais
+
+### Disciplinas
+
+- Visualizar lista de disciplinas.
+- Adicionar disciplinas à grade de interesse.
+- Remover disciplinas da grade de interesse.
+- Exibir itens selecionados em outra rota.
+- Uso de `@Input()` no componente filho `card-disciplina`.
+- Uso de `@Output()` para enviar eventos do componente filho para o pai.
+
+### Campanhas - Aula 8
+
+- Formulário com os campos:
+  - título
+  - descrição
+  - data limite
+  - campanha ativa
+- Validação obrigatória.
+- Validação de tamanho mínimo.
+- Mensagens de erro usando `@if`.
+- Botão de salvar desabilitado quando o formulário está inválido.
+
+### Campanhas - Aula 9
+
+- Listagem de campanhas usando `@for`.
+- Botão de excluir.
+- Confirmação antes de excluir.
+- Formulário reutilizado para cadastrar e editar.
+- Rota de edição.
+- Preenchimento automático dos campos ao editar.
+- Persistência simples usando `localStorage`.
 
 ## Como executar
 
@@ -45,49 +76,12 @@ Execute o projeto:
 npm start
 ```
 
-Depois acesse no navegador:
+Acesse no navegador:
 
 ```txt
 http://localhost:4200
 ```
 
-## Estrutura principal
+## Observação
 
-```txt
-src/app/
-├── app.config.ts
-├── app.routes.ts
-├── app.ts
-├── app.html
-├── app.css
-├── models/
-│   └── disciplina.model.ts
-├── services/
-│   └── grade-interesse.service.ts
-├── components/
-│   └── card-disciplina/
-└── pages/
-    ├── home/
-    ├── disciplinas/
-    ├── interesses/
-    ├── sobre/
-    └── campanha-form/
-```
-
-
-## Aula 8
-
-Foi adicionada a página `campanha-form` com:
-
-- campo título;
-- campo descrição;
-- campo data limite;
-- checkbox ativa;
-- validação obrigatória;
-- validação de tamanho mínimo;
-- mensagens de erro usando `@if`;
-- botão de salvar desabilitado quando o formulário estiver inválido.
-
-Arquivo de detalhes: `docs/aula-08.md`.
-
-Histórico completo: `CHANGELOG.md`.
+O projeto usa listas locais em memória e `localStorage`. Não é obrigatório usar API para este trabalho.

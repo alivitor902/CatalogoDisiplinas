@@ -4,6 +4,7 @@ import { Disciplinas } from './pages/disciplinas/disciplinas';
 import { Interesses } from './pages/interesses/interesses';
 import { Sobre } from './pages/sobre/sobre';
 import { CampanhaForm } from './pages/campanha-form/campanha-form';
+import { CampanhaLista } from './pages/campanha-lista/campanha-lista';
 
 export const routes: Routes = [
   {
@@ -28,7 +29,15 @@ export const routes: Routes = [
     component: Sobre,
   },
   {
+    path: 'campanhas',
+    component: CampanhaLista,
+  },
+  {
     path: 'campanha-form',
+    component: CampanhaForm,
+  },
+  {
+    path: 'campanha-form/:id',
     component: CampanhaForm,
   },
   {

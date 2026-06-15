@@ -1,0 +1,136 @@
+.pagina-campanha-lista {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.cabecalho-pagina {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.tag-pagina {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  font-weight: bold;
+  margin: 0 0 8px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  color: #0f172a;
+}
+
+.botao-nova-campanha,
+.botao-editar,
+.botao-excluir {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.botao-nova-campanha {
+  background-color: #2563eb;
+  white-space: nowrap;
+}
+
+.total {
+  font-weight: bold;
+  color: #334155;
+}
+
+.mensagem-sucesso {
+  background-color: #dcfce7;
+  color: #166534;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #86efac;
+}
+
+.lista-vazia {
+  background-color: #fef3c7;
+  color: #92400e;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #facc15;
+}
+
+.grade-campanhas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.card-campanha {
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 18px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.topo-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.topo-card h2 {
+  margin: 0;
+  color: #1e293b;
+  font-size: 20px;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.ativa {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.inativa {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.data-limite {
+  color: #334155;
+}
+
+.acoes {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.botao-editar {
+  background-color: #0f766e;
+}
+
+.botao-excluir {
+  background-color: #dc2626;
+}
+
+@media (max-width: 700px) {
+  .cabecalho-pagina {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

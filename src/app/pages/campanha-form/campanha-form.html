@@ -1,11 +1,19 @@
 <section class="pagina-campanha-form">
   <div class="card-formulario">
     <div class="cabecalho-formulario">
-      <p class="tag-pagina">Aula 8</p>
-      <h1>Cadastro de Campanha</h1>
-      <p>
-        Preencha os dados da campanha acadêmica. O botão de salvar ficará desabilitado enquanto o formulário estiver inválido.
-      </p>
+      <p class="tag-pagina">Aula 9</p>
+
+      @if (modoEdicao) {
+        <h1>Editar Campanha</h1>
+        <p>
+          O mesmo formulário da criação foi reutilizado para edição. Os campos são preenchidos automaticamente pela rota de edição.
+        </p>
+      } @else {
+        <h1>Cadastro de Campanha</h1>
+        <p>
+          Preencha os dados da campanha acadêmica. O botão de salvar ficará desabilitado enquanto o formulário estiver inválido.
+        </p>
+      }
     </div>
 
     @if (mensagemSucesso) {
@@ -69,9 +77,19 @@
         <small class="erro">É necessário marcar a campanha como ativa.</small>
       }
 
-      <button type="submit" [disabled]="formularioCampanha.invalid">
-        Salvar campanha
-      </button>
+      <div class="acoes-formulario">
+        <a routerLink="/campanhas" class="botao-secundario">
+          Voltar para listagem
+        </a>
+
+        <button type="submit" [disabled]="formularioCampanha.invalid">
+          @if (modoEdicao) {
+            Salvar alterações
+          } @else {
+            Salvar campanha
+          }
+        </button>
+      </div>
     </form>
   </div>
 </section>

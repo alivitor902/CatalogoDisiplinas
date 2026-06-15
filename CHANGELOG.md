@@ -1,28 +1,42 @@
 # Histórico de versões
 
-## v1.8.0-aula-08
+## v1.9.0 - Aula 9
 
-- Criada a página `campanha-form`.
-- Adicionada a rota `/campanha-form`.
-- Adicionado link de navegação para a página Campanha.
-- Criado formulário com os campos:
-  - título;
-  - descrição;
-  - data limite;
-  - checkbox ativa.
-- Implementada validação obrigatória.
-- Implementada validação de tamanho mínimo para título e descrição.
-- Criadas mensagens de erro usando `@if` no HTML.
-- Botão de salvar desabilitado enquanto o formulário estiver inválido.
-- Página Sobre atualizada para registrar o uso de Reactive Forms.
+- Criada página de listagem de campanhas com `@for`.
+- Adicionado botão de excluir campanha.
+- Adicionada confirmação antes da exclusão usando `confirm()`.
+- Reutilizado o formulário de campanha da Aula 8 para cadastro e edição.
+- Criada rota de edição `/campanha-form/:id`.
+- Implementado preenchimento automático dos dados no formulário de edição.
+- Criado `CampanhaService` para gerenciar campanhas.
+- Criado model `Campanha`.
+- Adicionada rota `/campanhas`.
+- Atualizado menu principal com links para campanhas e nova campanha.
+- Adicionada persistência simples com `localStorage`.
+- Criado documento `docs/aula-09.md`.
 
-## v1.0.0-aula-01
+## v1.8.0 - Aula 8
+
+- Criada página `campanha-form`.
+- Adicionada rota `/campanha-form`.
+- Adicionado link no menu para campanha.
+- Criado formulário com campos `titulo`, `descricao`, `dataLimite` e `ativa`.
+- Adicionadas validações obrigatórias.
+- Adicionadas validações de tamanho mínimo.
+- Adicionadas mensagens de erro usando `@if`.
+- Botão de salvar desabilitado quando o formulário está inválido.
+- Criado documento `docs/aula-08.md`.
+
+## v1.0.0 - Versão inicial
 
 - Criação inicial do projeto Angular SPA.
-- Rotas Home, Listagem, Favoritos e Sobre.
-- Tema: Catálogo de Disciplinas Acadêmicas.
-- Componente filho reutilizável `CardDisciplina`.
-- Uso de `@Input()` para receber dados no card.
-- Uso de `@Output()` para emitir eventos do card para a página de listagem.
-- Lista local de disciplinas em memória.
-- Grade de interesse com adição, visualização e remoção de disciplinas.
+- Rotas `/home`, `/itens`, `/favoritos` e `/sobre`.
+- Página Home.
+- Página de listagem de disciplinas.
+- Página de grade de interesse.
+- Página Sobre.
+- Componente filho `card-disciplina`.
+- Uso de `@Input()`.
+- Uso de `@Output()`.
+- Lista local de disciplinas.
+- Service para manter a grade de interesse entre rotas.
