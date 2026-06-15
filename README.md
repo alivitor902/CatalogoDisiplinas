@@ -21,6 +21,7 @@ Catálogo de Disciplinas Acadêmicas
 - Remoção de itens da grade de interesse.
 - Página Sobre com aluno, tema, objetivo e tecnologias usadas.
 - Navegação por rotas usando `routerLink`.
+- Página `campanha-form` da Aula 8 com formulário reativo, validações e mensagens usando `@if`.
 
 ## Rotas
 
@@ -28,6 +29,7 @@ Catálogo de Disciplinas Acadêmicas
 - `/itens`
 - `/favoritos`
 - `/sobre`
+- `/campanha-form`
 
 ## Como executar
 
@@ -68,5 +70,24 @@ src/app/
     ├── home/
     ├── disciplinas/
     ├── interesses/
-    └── sobre/
+    ├── sobre/
+    └── campanha-form/
 ```
+
+
+## Aula 8
+
+Foi adicionada a página `campanha-form` com:
+
+- campo título;
+- campo descrição;
+- campo data limite;
+- checkbox ativa;
+- validação obrigatória;
+- validação de tamanho mínimo;
+- mensagens de erro usando `@if`;
+- botão de salvar desabilitado quando o formulário estiver inválido.
+
+Arquivo de detalhes: `docs/aula-08.md`.
+
+Histórico completo: `CHANGELOG.md`.

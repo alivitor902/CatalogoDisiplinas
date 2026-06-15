@@ -3,6 +3,7 @@ import { Home } from './pages/home/home';
 import { Disciplinas } from './pages/disciplinas/disciplinas';
 import { Interesses } from './pages/interesses/interesses';
 import { Sobre } from './pages/sobre/sobre';
+import { CampanhaForm } from './pages/campanha-form/campanha-form';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,10 @@ export const routes: Routes = [
   {
     path: 'sobre',
     component: Sobre,
+  },
+  {
+    path: 'campanha-form',
+    component: CampanhaForm,
   },
   {
     path: '**',

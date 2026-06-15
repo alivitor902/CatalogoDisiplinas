@@ -1,0 +1,77 @@
+<section class="pagina-campanha-form">
+  <div class="card-formulario">
+    <div class="cabecalho-formulario">
+      <p class="tag-pagina">Aula 8</p>
+      <h1>Cadastro de Campanha</h1>
+      <p>
+        Preencha os dados da campanha acadêmica. O botão de salvar ficará desabilitado enquanto o formulário estiver inválido.
+      </p>
+    </div>
+
+    @if (mensagemSucesso) {
+      <div class="mensagem-sucesso">
+        {{ mensagemSucesso }}
+      </div>
+    }
+
+    <form [formGroup]="formularioCampanha" (ngSubmit)="salvarCampanha()" class="formulario">
+      <div class="grupo-campo">
+        <label for="titulo">Título</label>
+        <input
+          id="titulo"
+          type="text"
+          formControlName="titulo"
+          placeholder="Ex: Semana acadêmica de tecnologia"
+        />
+
+        @if (campoInvalido('titulo') && formularioCampanha.get('titulo')?.hasError('required')) {
+          <small class="erro">O título é obrigatório.</small>
+        }
+
+        @if (campoInvalido('titulo') && formularioCampanha.get('titulo')?.hasError('minlength')) {
+          <small class="erro">O título deve ter no mínimo 3 caracteres.</small>
+        }
+      </div>
+
+      <div class="grupo-campo">
+        <label for="descricao">Descrição</label>
+        <textarea
+          id="descricao"
+          rows="5"
+          formControlName="descricao"
+          placeholder="Descreva o objetivo da campanha"
+        ></textarea>
+
+        @if (campoInvalido('descricao') && formularioCampanha.get('descricao')?.hasError('required')) {
+          <small class="erro">A descrição é obrigatória.</small>
+        }
+
+        @if (campoInvalido('descricao') && formularioCampanha.get('descricao')?.hasError('minlength')) {
+          <small class="erro">A descrição deve ter no mínimo 10 caracteres.</small>
+        }
+      </div>
+
+      <div class="grupo-campo">
+        <label for="dataLimite">Data limite</label>
+        <input id="dataLimite" type="date" formControlName="dataLimite" />
+
+        @if (campoInvalido('dataLimite') && formularioCampanha.get('dataLimite')?.hasError('required')) {
+          <small class="erro">A data limite é obrigatória.</small>
+        }
+      </div>
+
+      <div class="grupo-checkbox">
+        <input id="ativa" type="checkbox" formControlName="ativa" />
+        <label for="ativa">Campanha ativa</label>
+      </div>
+
+      @if (campoInvalido('ativa') && formularioCampanha.get('ativa')?.hasError('required')) {
+        <small class="erro">É necessário marcar a campanha como ativa.</small>
+      }
+
+      <button type="submit" [disabled]="formularioCampanha.invalid">
+        Salvar campanha
+      </button>
+    </form>
+  </div>
+</section>
