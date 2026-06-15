@@ -1,0 +1,47 @@
+.sobre {
+  display: flex;
+  justify-content: center;
+}
+
+.card-sobre {
+  background-color: white;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  max-width: 850px;
+  width: 100%;
+}
+
+.tag-pagina {
+  color: #2563eb;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.card-sobre h1 {
+  color: #1e293b;
+  margin-bottom: 20px;
+}
+
+.info {
+  background-color: #f8fafc;
+  border-radius: 10px;
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 22px;
+}
+
+.info p {
+  margin-bottom: 10px;
+}
+
+.requisitos h2 {
+  color: #1e293b;
+}
+
+.requisitos li {
+  margin-bottom: 8px;
+  color: #475569;
+}

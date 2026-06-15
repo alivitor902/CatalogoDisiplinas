@@ -1,0 +1,27 @@
+<section class="pagina-listagem">
+  <div class="cabecalho-pagina">
+    <div>
+      <p class="tag-pagina">Listagem</p>
+      <h1>Disciplinas Acadêmicas</h1>
+      <p>Escolha as disciplinas que deseja adicionar à sua grade de interesse.</p>
+    </div>
+
+    <div class="contador">
+      Total de disciplinas: {{ disciplinas.length }}
+    </div>
+  </div>
+
+  <p *ngIf="mensagem" class="mensagem">
+    {{ mensagem }}
+  </p>
+
+  <div class="grade-cards">
+    <app-card-disciplina
+      *ngFor="let disciplina of disciplinas"
+      [disciplina]="disciplina"
+      [selecionada]="verificarSelecionada(disciplina.id)"
+      (adicionar)="adicionarNaGrade($event)"
+      (remover)="removerDaGrade($event)"
+    ></app-card-disciplina>
+  </div>
+</section>

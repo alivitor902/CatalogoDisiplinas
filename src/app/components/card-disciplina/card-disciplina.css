@@ -1,0 +1,90 @@
+.card-disciplina {
+  background-color: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.topo-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.categoria,
+.status {
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 999px;
+  padding: 5px 9px;
+}
+
+.categoria {
+  background-color: #e0f2fe;
+  color: #075985;
+}
+
+.status {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.card-disciplina h3 {
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.descricao {
+  color: #475569;
+  line-height: 1.5;
+}
+
+.informacoes {
+  margin-top: auto;
+}
+
+.informacoes p {
+  margin-bottom: 8px;
+}
+
+.acoes-card {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.botao-adicionar {
+  background-color: #2563eb;
+}
+
+.botao-adicionar:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+.botao-adicionar:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.botao-remover {
+  background-color: #dc2626;
+}
+
+.botao-remover:hover {
+  background-color: #b91c1c;
+}

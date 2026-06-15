@@ -1,0 +1,39 @@
+<section class="pagina-interesses">
+  <div class="cabecalho-pagina">
+    <div>
+      <p class="tag-pagina">Favoritos</p>
+      <h1>Grade de Interesse</h1>
+      <p>Veja as disciplinas adicionadas anteriormente pela página de listagem.</p>
+    </div>
+
+    <div class="contador">
+      Total de itens: {{ disciplinasSelecionadas.length }}
+    </div>
+  </div>
+
+  <div *ngIf="disciplinasSelecionadas.length === 0" class="mensagem-vazio">
+    <h2>Nenhum item selecionado</h2>
+    <p>Volte para a listagem e adicione disciplinas à sua grade de interesse.</p>
+    <a routerLink="/itens">Ir para listagem</a>
+  </div>
+
+  <div class="lista-interesses" *ngIf="disciplinasSelecionadas.length > 0">
+    <article class="item-interesse" *ngFor="let disciplina of disciplinasSelecionadas">
+      <div>
+        <span>{{ disciplina.categoria }}</span>
+        <h3>{{ disciplina.nome }}</h3>
+        <p>{{ disciplina.descricao }}</p>
+
+        <div class="detalhes">
+          <p><strong>Carga horária:</strong> {{ disciplina.cargaHoraria }} horas</p>
+          <p><strong>Professor:</strong> {{ disciplina.professor }}</p>
+          <p><strong>Período:</strong> {{ disciplina.periodo }}</p>
+        </div>
+      </div>
+
+      <button type="button" (click)="removerDisciplina(disciplina.id)">
+        Remover da grade
+      </button>
+    </article>
+  </div>
+</section>

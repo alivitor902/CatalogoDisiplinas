@@ -1,0 +1,56 @@
+.menu-principal {
+  background-color: #1e293b;
+  color: white;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icone-marca {
+  font-size: 32px;
+}
+
+.marca strong {
+  display: block;
+  font-size: 20px;
+}
+
+.marca small {
+  display: block;
+  color: #cbd5e1;
+}
+
+.links-menu {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.links-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+.links-menu a:hover,
+.links-menu a.ativo {
+  background-color: #38bdf8;
+  color: #0f172a;
+}
+
+.conteudo-principal {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}

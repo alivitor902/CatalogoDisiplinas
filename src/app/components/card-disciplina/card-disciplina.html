@@ -1,0 +1,26 @@
+<article class="card-disciplina">
+  <div class="topo-card">
+    <span class="categoria">{{ disciplina.categoria }}</span>
+    <span class="status">{{ disciplina.status }}</span>
+  </div>
+
+  <h3>{{ disciplina.nome }}</h3>
+
+  <p class="descricao">{{ disciplina.descricao }}</p>
+
+  <div class="informacoes">
+    <p><strong>Carga horária:</strong> {{ disciplina.cargaHoraria }} horas</p>
+    <p><strong>Professor:</strong> {{ disciplina.professor }}</p>
+    <p><strong>Período:</strong> {{ disciplina.periodo }}</p>
+  </div>
+
+  <div class="acoes-card">
+    <button type="button" class="botao-adicionar" (click)="adicionarNaGrade()" [disabled]="selecionada">
+      {{ selecionada ? 'Já adicionada' : 'Adicionar à grade' }}
+    </button>
+
+    <button type="button" class="botao-remover" (click)="removerDaGrade()">
+      Remover
+    </button>
+  </div>
+</article>

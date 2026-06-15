@@ -1,0 +1,68 @@
+.home {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-home {
+  background: white;
+  border-radius: 18px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  max-width: 760px;
+  text-align: center;
+}
+
+.subtitulo {
+  color: #2563eb;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-home h1 {
+  font-size: 40px;
+  color: #1e293b;
+  margin-bottom: 16px;
+}
+
+.descricao {
+  color: #475569;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.acoes-home {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.botao-principal,
+.botao-secundario {
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-weight: bold;
+}
+
+.botao-principal {
+  background-color: #2563eb;
+  color: white;
+}
+
+.botao-principal:hover {
+  background-color: #1d4ed8;
+}
+
+.botao-secundario {
+  border: 1px solid #2563eb;
+  color: #2563eb;
+}
+
+.botao-secundario:hover {
+  background-color: #dbeafe;
+}
