@@ -97,6 +97,16 @@ h1 {
   border: 1px solid #facc15;
 }
 
+
+.mensagem-erro-exclusao {
+  background-color: #fee2e2;
+  color: #991b1b;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #fca5a5;
+}
+
 .lista-vazia {
   background-color: #fef3c7;
   color: #92400e;
@@ -174,4 +184,10 @@ h1 {
     align-items: flex-start;
     flex-direction: column;
   }
+}
+
+
+.botao-excluir:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
 }

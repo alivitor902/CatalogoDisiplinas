@@ -1,5 +1,20 @@
 # Histórico de versões
 
+## v1.13.0 - Aula 13
+
+- Implementado `PUT` no formulário de edição de campanhas.
+- Atualizado o método `update()` no `CampanhasApiService`.
+- Implementado método `delete(id: number)` no `CampanhasApiService`.
+- Atualizada a listagem para excluir campanhas usando `DELETE` na API REST.
+- Mantida confirmação antes de excluir usando `confirm()`.
+- Adicionado controle visual durante a exclusão com mensagem `Excluindo...`.
+- Adicionado tratamento de erro para falhas no DELETE.
+- Criado interceptor `authTokenInterceptor`.
+- Configurado header automático `Authorization` com token fake.
+- Configurado header automático `X-Sistema`.
+- Atualizado `provideHttpClient()` com `withInterceptors()`.
+- Criado documento `docs/aula-13.md`.
+
 ## v1.12.0 - Aula 12
 
 - Criado método `create()` no `CampanhasApiService`.

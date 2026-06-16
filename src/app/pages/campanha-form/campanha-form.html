@@ -1,17 +1,17 @@
 <section class="pagina-campanha-form">
   <div class="card-formulario">
     <div class="cabecalho-formulario">
-      <p class="tag-pagina">Aula 12</p>
+      <p class="tag-pagina">Aula 13</p>
 
       @if (modoEdicao) {
         <h1>Editar Campanha</h1>
         <p>
-          O formulário continua sendo reutilizado. Nesta tela, os dados são buscados automaticamente na API pelo ID da rota.
+          O formulário continua sendo reutilizado. Nesta tela, os dados são carregados pelo ID da rota e as alterações são enviadas para a API usando PUT.
         </p>
       } @else {
         <h1>Cadastro de Campanha</h1>
         <p>
-          Preencha os dados da campanha acadêmica. Ao salvar, os dados serão enviados para a API REST usando POST.
+          Preencha os dados da campanha acadêmica. Ao salvar, os dados serão enviados para a API REST usando POST, com token automático no header.
         </p>
       }
     </div>
@@ -96,7 +96,11 @@
 
         <button type="submit" [disabled]="formularioCampanha.invalid || salvando || carregandoCampanha">
           @if (salvando) {
-            Salvando...
+            @if (modoEdicao) {
+              Atualizando...
+            } @else {
+              Salvando...
+            }
           } @else if (modoEdicao) {
             Salvar alterações
           } @else {

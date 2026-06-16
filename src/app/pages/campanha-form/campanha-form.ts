@@ -52,7 +52,7 @@ export class CampanhaForm implements OnInit {
     if (this.modoEdicao && this.campanhaId !== null) {
       this.campanhasApiService.update(this.campanhaId, dadosCampanha).subscribe({
         next: (campanhaAtualizada) => {
-          this.mensagemSucesso = `Campanha \"${campanhaAtualizada.titulo}\" atualizada com sucesso na API!`;
+          this.mensagemSucesso = `Campanha \"${campanhaAtualizada.titulo}\" atualizada com sucesso na API via PUT!`;
           this.salvando = false;
 
           setTimeout(() => {
@@ -60,7 +60,7 @@ export class CampanhaForm implements OnInit {
           }, 700);
         },
         error: () => {
-          this.mensagemErro = 'Não foi possível atualizar a campanha na API. Verifique se o json-server está rodando e se o ID existe.';
+          this.mensagemErro = 'Não foi possível atualizar a campanha via PUT. Verifique se o json-server está rodando e se o ID existe.';
           this.salvando = false;
           this.formularioCampanha.enable();
         },
@@ -71,7 +71,7 @@ export class CampanhaForm implements OnInit {
 
     this.campanhasApiService.create(dadosCampanha).subscribe({
       next: (campanhaCriada) => {
-        this.mensagemSucesso = `Campanha "${campanhaCriada.titulo}" salva com sucesso na API!`;
+        this.mensagemSucesso = `Campanha "${campanhaCriada.titulo}" salva com sucesso na API via POST!`;
         this.salvando = false;
 
         setTimeout(() => {

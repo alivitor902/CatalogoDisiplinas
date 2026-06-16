@@ -13,8 +13,10 @@ export class CampanhaLista implements OnInit {
   campanhas: Campanha[] = [];
   mensagem = '';
   erro = '';
+  erroExclusao = '';
   carregando = false;
   carregamentoRealizado = false;
+  excluindoId: number | null = null;
 
   constructor(private campanhasApiService: CampanhasApiService) {}
 
@@ -25,6 +27,7 @@ export class CampanhaLista implements OnInit {
   buscarCampanhas(): void {
     this.carregando = true;
     this.erro = '';
+    this.erroExclusao = '';
     this.mensagem = '';
     this.carregamentoRealizado = false;
 
@@ -50,7 +53,20 @@ export class CampanhaLista implements OnInit {
       return;
     }
 
-    this.campanhas = this.campanhas.filter((item) => item.id !== campanha.id);
-    this.mensagem = `Campanha "${campanha.titulo}" removida da tela com sucesso.`;
+    this.mensagem = '';
+    this.erroExclusao = '';
+    this.excluindoId = campanha.id;
+
+    this.campanhasApiService.delete(campanha.id).subscribe({
+      next: () => {
+        this.campanhas = this.campanhas.filter((item) => item.id !== campanha.id);
+        this.mensagem = `Campanha "${campanha.titulo}" excluída com sucesso da API.`;
+        this.excluindoId = null;
+      },
+      error: () => {
+        this.erroExclusao = `Não foi possível excluir a campanha "${campanha.titulo}". Verifique se a API está rodando e tente novamente.`;
+        this.excluindoId = null;
+      },
+    });
   }
 }

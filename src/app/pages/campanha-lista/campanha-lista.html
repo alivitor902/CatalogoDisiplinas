@@ -1,10 +1,10 @@
 <section class="pagina-campanha-lista">
   <div class="cabecalho-pagina">
     <div>
-      <p class="tag-pagina">Aula 12</p>
+      <p class="tag-pagina">Aula 13</p>
       <h1>Listagem de Campanhas</h1>
       <p>
-        Esta página busca campanhas em uma API REST usando <strong>HttpClient</strong>. Novas campanhas salvas pelo formulário aparecem aqui após o POST.
+        Esta página busca campanhas em uma API REST, permite visualizar detalhes, editar com PUT e excluir usando DELETE.
       </p>
     </div>
 
@@ -39,12 +39,18 @@
 
   @if (!carregando && !erro && campanhas.length > 0) {
     <div class="mensagem-sucesso">
-      Campanhas carregadas com sucesso pela API REST.
+      Campanhas carregadas com sucesso pela API REST. O interceptor adiciona o token automaticamente nos headers das requisições.
     </div>
 
     @if (mensagem) {
       <div class="mensagem-remocao">
         {{ mensagem }}
+      </div>
+    }
+
+    @if (erroExclusao) {
+      <div class="mensagem-erro-exclusao">
+        {{ erroExclusao }}
       </div>
     }
 
@@ -78,8 +84,17 @@
               Editar
             </a>
 
-            <button type="button" class="botao-excluir" (click)="excluirCampanha(campanha)">
-              Excluir
+            <button
+              type="button"
+              class="botao-excluir"
+              [disabled]="excluindoId === campanha.id"
+              (click)="excluirCampanha(campanha)"
+            >
+              @if (excluindoId === campanha.id) {
+                Excluindo...
+              } @else {
+                Excluir
+              }
             </button>
           </div>
         </article>

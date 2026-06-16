@@ -27,6 +27,15 @@ export class CampanhasApiService {
   }
 
   update(id: number, campanha: NovaCampanha): Observable<Campanha> {
-    return this.httpClient.put<Campanha>(`${this.urlCampanhas}/${id}`, campanha).pipe(delay(500));
+    const campanhaAtualizada: Campanha = {
+      id,
+      ...campanha,
+    };
+
+    return this.httpClient.put<Campanha>(`${this.urlCampanhas}/${id}`, campanhaAtualizada).pipe(delay(500));
+  }
+
+  delete(id: number): Observable<void> {
+    return this.httpClient.delete<void>(`${this.urlCampanhas}/${id}`).pipe(delay(500));
   }
 }

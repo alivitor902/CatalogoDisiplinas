@@ -8,7 +8,7 @@ Catálogo de Disciplinas Acadêmicas.
 
 O sistema permite visualizar disciplinas acadêmicas e adicionar disciplinas à grade de interesse do aluno.
 
-A partir das Aulas 8, 9, 10, 11 e 12, também foi adicionada uma área de campanhas acadêmicas com formulário, listagem, edição, exclusão, detalhes e integração com API REST.
+A partir das Aulas 8, 9, 10, 11, 12 e 13, também foi adicionada uma área de campanhas acadêmicas com formulário, listagem, edição, exclusão, detalhes e integração com API REST.
 
 ## Tecnologias usadas
 
@@ -20,6 +20,7 @@ A partir das Aulas 8, 9, 10, 11 e 12, também foi adicionada uma área de campan
 - LocalStorage
 - HttpClient
 - API REST mockada com JSON Server
+- Interceptor HTTP com token automático
 
 ## Rotas principais
 
@@ -101,6 +102,16 @@ A partir das Aulas 8, 9, 10, 11 e 12, também foi adicionada uma área de campan
 - Formulário desabilitado durante o envio.
 - Redirecionamento automático para `/campanhas` após salvar.
 - A rota de edição foi preservada usando busca por ID e atualização via API.
+
+### Campanhas - Aula 13
+
+- Implementado `PUT` no formulário de edição.
+- Implementado `DELETE` na listagem de campanhas.
+- Mantida a confirmação antes de excluir com `confirm()`.
+- Criado interceptor HTTP com token.
+- Configurado header automático nas requisições da API.
+- O botão de exclusão exibe estado de carregamento durante o DELETE.
+- Tratamento de erro caso a exclusão falhe.
 
 ## Como executar
 
@@ -198,6 +209,33 @@ http://localhost:4200/campanhas
 
 A nova campanha aparecerá na listagem carregada pela API REST. Para testar erro, pare a API e tente salvar novamente.
 
+
+
+## Como testar a Aula 13
+
+Com a API rodando, acesse:
+
+```txt
+http://localhost:4200/campanhas
+```
+
+### Testar PUT
+
+Clique em **Editar**, altere uma campanha e clique em **Salvar alterações**. O formulário enviará a atualização usando `PUT` e redirecionará para `/campanhas`.
+
+### Testar DELETE
+
+Clique em **Excluir**, confirme a exclusão e a campanha será removida da API usando `DELETE`. Durante a exclusão, o botão mostra **Excluindo...**.
+
+### Testar interceptor com token
+
+Abra o DevTools do navegador, vá em **Network**, clique em uma requisição para `/campanhas` e confira os headers enviados. O interceptor adiciona automaticamente:
+
+```txt
+Authorization: Bearer token-fake-aula-13-catalogo-disciplinas
+X-Sistema: Catalogo-Disciplinas-Academicas
+```
+
 ## Observação
 
-Na Aula 10 foi criada a base de integração REST com `getAll()`. Na Aula 11 foi adicionada a consulta por ID com `getById()`. Na Aula 12 foi implementado o cadastro via `POST` usando `create()`, com loading, erro e redirecionamento após salvar.
+Na Aula 10 foi criada a base de integração REST com `getAll()`. Na Aula 11 foi adicionada a consulta por ID com `getById()`. Na Aula 12 foi implementado o cadastro via `POST` usando `create()`, com loading, erro e redirecionamento após salvar. Na Aula 13 foram implementados `PUT`, `DELETE` e interceptor HTTP com token automático.
