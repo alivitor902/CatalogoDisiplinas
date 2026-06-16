@@ -21,5 +21,15 @@
       "dataLimite": "2026-08-05",
       "ativa": false
     }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "ALISSON VITOR LOHN VODZICKI",
+      "email": "admin@catalogo.com",
+      "senha": "123456",
+      "perfil": "ADMIN",
+      "token": "token-api-aula-14-catalogo-disciplinas"
+    }
   ]
 }

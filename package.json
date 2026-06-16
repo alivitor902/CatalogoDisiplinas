@@ -1,6 +1,6 @@
 {
   "name": "catalogo-disciplinas-academicas",
-  "version": "1.13.0",
+  "version": "1.14.0",
   "description": "Projeto Angular SPA - Catálogo de Disciplinas Acadêmicas",
   "scripts": {
     "ng": "ng",

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CampanhasApiService, NovaCampanha } from '../../services/campanhas-api.service';
+import { MensagemService } from '../../services/mensagem.service';
 
 @Component({
   selector: 'app-campanha-form',
@@ -28,7 +29,8 @@ export class CampanhaForm implements OnInit {
     private formBuilder: FormBuilder,
     private campanhasApiService: CampanhasApiService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private mensagemService: MensagemService
   ) {}
 
   ngOnInit(): void {
@@ -53,14 +55,16 @@ export class CampanhaForm implements OnInit {
       this.campanhasApiService.update(this.campanhaId, dadosCampanha).subscribe({
         next: (campanhaAtualizada) => {
           this.mensagemSucesso = `Campanha \"${campanhaAtualizada.titulo}\" atualizada com sucesso na API via PUT!`;
+          this.mensagemService.mostrarSucesso(this.mensagemSucesso);
           this.salvando = false;
 
           setTimeout(() => {
-            this.router.navigate(['/campanhas']);
+            this.router.navigate(['/admin/campanhas']);
           }, 700);
         },
         error: () => {
           this.mensagemErro = 'Não foi possível atualizar a campanha via PUT. Verifique se o json-server está rodando e se o ID existe.';
+          this.mensagemService.mostrarErro(this.mensagemErro);
           this.salvando = false;
           this.formularioCampanha.enable();
         },
@@ -72,14 +76,16 @@ export class CampanhaForm implements OnInit {
     this.campanhasApiService.create(dadosCampanha).subscribe({
       next: (campanhaCriada) => {
         this.mensagemSucesso = `Campanha "${campanhaCriada.titulo}" salva com sucesso na API via POST!`;
+        this.mensagemService.mostrarSucesso(this.mensagemSucesso);
         this.salvando = false;
 
         setTimeout(() => {
-          this.router.navigate(['/campanhas']);
+          this.router.navigate(['/admin/campanhas']);
         }, 700);
       },
       error: () => {
         this.mensagemErro = 'Não foi possível salvar a campanha na API. Verifique se o json-server está rodando em http://localhost:3000/campanhas.';
+        this.mensagemService.mostrarErro(this.mensagemErro);
         this.salvando = false;
         this.formularioCampanha.enable();
       },
@@ -102,6 +108,7 @@ export class CampanhaForm implements OnInit {
 
     if (!this.campanhaId) {
       this.mensagemErro = 'Identificador da campanha inválido.';
+      this.mensagemService.mostrarErro(this.mensagemErro);
       return;
     }
 
@@ -123,6 +130,7 @@ export class CampanhaForm implements OnInit {
       },
       error: () => {
         this.mensagemErro = 'Campanha não encontrada na API. Verifique se a API está rodando e se o ID existe.';
+        this.mensagemService.mostrarErro(this.mensagemErro);
         this.carregandoCampanha = false;
       },
     });

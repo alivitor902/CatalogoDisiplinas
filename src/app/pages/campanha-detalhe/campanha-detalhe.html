@@ -1,14 +1,14 @@
 <section class="pagina-campanha-detalhe">
   <div class="cabecalho-pagina">
     <div>
-      <p class="tag-pagina">Aula 11</p>
+      <p class="tag-pagina">Aula 14</p>
       <h1>Detalhe da Campanha</h1>
       <p>
-        Esta página consome a API REST por ID usando a rota <strong>/campanhas/:id</strong>.
+        Esta página consome a API REST por ID usando a rota protegida <strong>/admin/campanhas/:id</strong>.
       </p>
     </div>
 
-    <a routerLink="/campanhas" class="botao-voltar">
+    <a routerLink="/admin/campanhas" class="botao-voltar">
       Voltar para campanhas
     </a>
   </div>
@@ -24,7 +24,7 @@
     <div class="estado estado-erro">
       <strong>Erro ao carregar detalhe</strong>
       <span>{{ erro }}</span>
-      <a routerLink="/campanhas" class="botao-retorno-erro">
+      <a routerLink="/admin/campanhas" class="botao-retorno-erro">
         Voltar para a listagem
       </a>
     </div>
@@ -63,11 +63,11 @@
       </div>
 
       <div class="acoes">
-        <a [routerLink]="['/campanha-form', campanha.id]" class="botao-editar">
+        <a [routerLink]="['/admin/campanha-form', campanha.id]" class="botao-editar">
           Editar campanha
         </a>
 
-        <a routerLink="/campanhas" class="botao-secundario">
+        <a routerLink="/admin/campanhas" class="botao-secundario">
           Voltar
         </a>
       </div>

@@ -12,10 +12,31 @@
     <a routerLink="/itens" routerLinkActive="ativo">Listagem</a>
     <a routerLink="/favoritos" routerLinkActive="ativo">Favoritos</a>
     <a routerLink="/sobre" routerLinkActive="ativo">Sobre</a>
-    <a routerLink="/campanhas" routerLinkActive="ativo">Campanhas</a>
-    <a routerLink="/campanha-form" routerLinkActive="ativo">Nova Campanha</a>
+    <a routerLink="/admin/campanhas" routerLinkActive="ativo">Admin Campanhas</a>
+    <a routerLink="/admin/campanha-form" routerLinkActive="ativo">Nova Campanha</a>
+
+    @if (authService.estaAutenticado()) {
+      <button type="button" class="botao-sair" (click)="sair()">Logout</button>
+    } @else {
+      <a routerLink="/login" routerLinkActive="ativo">Login</a>
+    }
   </div>
 </nav>
+
+@if (carregando$ | async) {
+  <div class="loading-global">
+    <div class="caixa-loading">
+      <span class="spinner"></span>
+      <strong>Carregando...</strong>
+    </div>
+  </div>
+}
+
+@if (mensagem$ | async; as mensagem) {
+  <div class="mensagem-global" [class.sucesso]="mensagem.tipo === 'sucesso'" [class.erro]="mensagem.tipo === 'erro'">
+    {{ mensagem.texto }}
+  </div>
+}
 
 <main class="conteudo-principal">
   <router-outlet></router-outlet>

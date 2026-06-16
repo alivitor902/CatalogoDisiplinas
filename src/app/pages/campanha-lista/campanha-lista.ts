@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Campanha } from '../../models/campanha.model';
 import { CampanhasApiService } from '../../services/campanhas-api.service';
+import { MensagemService } from '../../services/mensagem.service';
 
 @Component({
   selector: 'app-campanha-lista',
@@ -18,7 +19,10 @@ export class CampanhaLista implements OnInit {
   carregamentoRealizado = false;
   excluindoId: number | null = null;
 
-  constructor(private campanhasApiService: CampanhasApiService) {}
+  constructor(
+    private campanhasApiService: CampanhasApiService,
+    private mensagemService: MensagemService
+  ) {}
 
   ngOnInit(): void {
     this.buscarCampanhas();
@@ -40,6 +44,7 @@ export class CampanhaLista implements OnInit {
       error: () => {
         this.campanhas = [];
         this.erro = 'Não foi possível carregar as campanhas da API. Verifique se a API está rodando em http://localhost:3000/campanhas.';
+        this.mensagemService.mostrarErro(this.erro);
         this.carregando = false;
         this.carregamentoRealizado = true;
       },
@@ -61,10 +66,12 @@ export class CampanhaLista implements OnInit {
       next: () => {
         this.campanhas = this.campanhas.filter((item) => item.id !== campanha.id);
         this.mensagem = `Campanha "${campanha.titulo}" excluída com sucesso da API.`;
+        this.mensagemService.mostrarSucesso(this.mensagem);
         this.excluindoId = null;
       },
       error: () => {
         this.erroExclusao = `Não foi possível excluir a campanha "${campanha.titulo}". Verifique se a API está rodando e tente novamente.`;
+        this.mensagemService.mostrarErro(this.erroExclusao);
         this.excluindoId = null;
       },
     });

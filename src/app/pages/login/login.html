@@ -1,0 +1,69 @@
+<section class="pagina-login">
+  <div class="card-login">
+    <p class="tag-pagina">Aula 14</p>
+    <h1>Login Administrativo</h1>
+    <p class="descricao">
+      Acesse a área administrativa para gerenciar campanhas usando rotas protegidas por guard.
+    </p>
+
+    <div class="credenciais-teste">
+      <strong>Usuário de teste</strong>
+      <span>E-mail: admin@catalogo.com</span>
+      <span>Senha: 123456</span>
+    </div>
+
+    @if (mensagemErro) {
+      <div class="mensagem-erro">
+        {{ mensagemErro }}
+      </div>
+    }
+
+    <form [formGroup]="formularioLogin" (ngSubmit)="entrar()" class="formulario-login">
+      <div class="grupo-campo">
+        <label for="email">E-mail</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="admin@catalogo.com"
+        />
+
+        @if (campoInvalido('email') && formularioLogin.get('email')?.hasError('required')) {
+          <small class="erro">O e-mail é obrigatório.</small>
+        }
+
+        @if (campoInvalido('email') && formularioLogin.get('email')?.hasError('email')) {
+          <small class="erro">Informe um e-mail válido.</small>
+        }
+      </div>
+
+      <div class="grupo-campo">
+        <label for="senha">Senha</label>
+        <input
+          id="senha"
+          type="password"
+          formControlName="senha"
+          placeholder="Digite sua senha"
+        />
+
+        @if (campoInvalido('senha') && formularioLogin.get('senha')?.hasError('required')) {
+          <small class="erro">A senha é obrigatória.</small>
+        }
+
+        @if (campoInvalido('senha') && formularioLogin.get('senha')?.hasError('minlength')) {
+          <small class="erro">A senha deve ter no mínimo 4 caracteres.</small>
+        }
+      </div>
+
+      <button type="submit" [disabled]="formularioLogin.invalid || entrando">
+        @if (entrando) {
+          Entrando...
+        } @else {
+          Entrar
+        }
+      </button>
+    </form>
+
+    <a routerLink="/home" class="link-voltar">Voltar para Home</a>
+  </div>
+</section>

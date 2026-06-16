@@ -1,14 +1,14 @@
 <section class="pagina-campanha-lista">
   <div class="cabecalho-pagina">
     <div>
-      <p class="tag-pagina">Aula 13</p>
+      <p class="tag-pagina">Aula 14</p>
       <h1>Listagem de Campanhas</h1>
       <p>
-        Esta página busca campanhas em uma API REST, permite visualizar detalhes, editar com PUT e excluir usando DELETE.
+        Esta página fica dentro da área administrativa protegida. Ela usa API REST, guard, interceptor com token e loading global.
       </p>
     </div>
 
-    <a routerLink="/campanha-form" class="botao-nova-campanha">
+    <a routerLink="/admin/campanha-form" class="botao-nova-campanha">
       Nova campanha
     </a>
   </div>
@@ -76,11 +76,11 @@
           </p>
 
           <div class="acoes">
-            <a [routerLink]="['/campanhas', campanha.id]" class="botao-detalhes">
+            <a [routerLink]="['/admin/campanhas', campanha.id]" class="botao-detalhes">
               Detalhes
             </a>
 
-            <a [routerLink]="['/campanha-form', campanha.id]" class="botao-editar">
+            <a [routerLink]="['/admin/campanha-form', campanha.id]" class="botao-editar">
               Editar
             </a>
 

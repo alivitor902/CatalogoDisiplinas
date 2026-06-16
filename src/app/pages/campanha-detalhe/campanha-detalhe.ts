@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Campanha } from '../../models/campanha.model';
 import { CampanhasApiService } from '../../services/campanhas-api.service';
+import { MensagemService } from '../../services/mensagem.service';
 
 @Component({
   selector: 'app-campanha-detalhe',
@@ -16,7 +17,8 @@ export class CampanhaDetalhe implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private campanhasApiService: CampanhasApiService
+    private campanhasApiService: CampanhasApiService,
+    private mensagemService: MensagemService
   ) {}
 
   ngOnInit(): void {
@@ -24,6 +26,7 @@ export class CampanhaDetalhe implements OnInit {
 
     if (!idRecebido) {
       this.erro = 'Identificador da campanha inválido.';
+      this.mensagemService.mostrarErro(this.erro);
       return;
     }
 
@@ -42,6 +45,7 @@ export class CampanhaDetalhe implements OnInit {
       },
       error: () => {
         this.erro = 'Não foi possível carregar os detalhes da campanha. Verifique se a API está rodando e se o ID existe.';
+        this.mensagemService.mostrarErro(this.erro);
         this.carregando = false;
       },
     });

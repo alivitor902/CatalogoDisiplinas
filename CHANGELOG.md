@@ -1,5 +1,26 @@
 # Histórico de versões
 
+## v1.14.0 - Aula 14
+
+- Criada tela de login em `/login`.
+- Implementado login real consultando usuários no `db.json` via API REST.
+- Adicionado endpoint `usuarios` no `api.config.ts`.
+- Adicionado usuário de teste no `db.json`.
+- Criado `AuthService` para login, logout, token e usuário autenticado.
+- Token salvo no navegador usando `localStorage`.
+- Criado `authGuard` para proteger rotas administrativas.
+- Criada área administrativa em `/admin`.
+- Implementado lazy loading das rotas protegidas com `loadChildren`.
+- Campanhas movidas para rotas protegidas `/admin/campanhas`.
+- Rotas antigas mantidas com redirecionamento para a área administrativa.
+- Interceptor atualizado para buscar o token salvo no navegador.
+- Header `Authorization` adicionado automaticamente quando existe token.
+- Header `X-Sistema` mantido automaticamente nas requisições.
+- Criado `LoadingService` para loading global.
+- Criado `MensagemService` para mensagens globais de sucesso e erro.
+- Adicionado botão de logout no menu superior.
+- Atualizado documento `docs/aula-14.md`.
+
 ## v1.13.0 - Aula 13
 
 - Implementado `PUT` no formulário de edição de campanhas.

@@ -3,9 +3,8 @@ import { Home } from './pages/home/home';
 import { Disciplinas } from './pages/disciplinas/disciplinas';
 import { Interesses } from './pages/interesses/interesses';
 import { Sobre } from './pages/sobre/sobre';
-import { CampanhaForm } from './pages/campanha-form/campanha-form';
-import { CampanhaLista } from './pages/campanha-lista/campanha-lista';
-import { CampanhaDetalhe } from './pages/campanha-detalhe/campanha-detalhe';
+import { Login } from './pages/login/login';
+import { authChildGuard, authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -30,20 +29,32 @@ export const routes: Routes = [
     component: Sobre,
   },
   {
+    path: 'login',
+    component: Login,
+  },
+  {
+    path: 'admin',
+    canActivate: [authGuard],
+    canActivateChild: [authChildGuard],
+    loadChildren: () => import('./admin/admin.routes').then((arquivo) => arquivo.ADMIN_ROUTES),
+  },
+  {
     path: 'campanhas',
-    component: CampanhaLista,
+    redirectTo: 'admin/campanhas',
+    pathMatch: 'full',
   },
   {
     path: 'campanhas/:id',
-    component: CampanhaDetalhe,
+    redirectTo: 'admin/campanhas/:id',
   },
   {
     path: 'campanha-form',
-    component: CampanhaForm,
+    redirectTo: 'admin/campanha-form',
+    pathMatch: 'full',
   },
   {
     path: 'campanha-form/:id',
-    component: CampanhaForm,
+    redirectTo: 'admin/campanha-form/:id',
   },
   {
     path: '**',

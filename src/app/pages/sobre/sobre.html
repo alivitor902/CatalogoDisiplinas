@@ -7,13 +7,13 @@
       <p><strong>Aluno:</strong> ALISSON VITOR LOHN VODZICKI</p>
       <p><strong>Tema escolhido:</strong> Catálogo de Disciplinas Acadêmicas</p>
       <p><strong>Objetivo do sistema:</strong> permitir que o usuário visualize disciplinas acadêmicas e adicione matérias à grade de interesse.</p>
-      <p><strong>Tecnologias usadas:</strong> Angular, TypeScript, HTML, CSS, Reactive Forms, HttpClient e API REST.</p>
+      <p><strong>Tecnologias usadas:</strong> Angular, TypeScript, HTML, CSS, Reactive Forms, HttpClient, API REST, Guard, Lazy Loading, Interceptor e LocalStorage.</p>
     </div>
 
     <div class="requisitos">
       <h2>Requisitos demonstrados</h2>
       <ul>
-        <li>Rotas: Home, Listagem, Favoritos, Sobre, Campanhas e Campanha Form.</li>
+        <li>Rotas: Home, Listagem, Favoritos, Sobre, Login e área Admin de Campanhas.</li>
         <li>Menu com navegação usando routerLink.</li>
         <li>Componente filho reutilizável para os cards.</li>
         <li>Uso de @Input() para enviar dados do pai para o filho.</li>
@@ -26,6 +26,12 @@
         <li>Configuração de provideHttpClient() para integração com API REST.</li>
         <li>Serviço CampanhasApiService com método getAll().</li>
         <li>Exibição dos estados carregando, erro, vazio e sucesso.</li>
+        <li>Login real com API e token salvo no navegador.</li>
+        <li>Guard protegendo rotas administrativas.</li>
+        <li>Lazy loading nas rotas protegidas.</li>
+        <li>Interceptor adicionando token automaticamente no header.</li>
+        <li>Loading global e mensagens globais de sucesso e erro.</li>
+        <li>Logout removendo token e protegendo novamente o acesso admin.</li>
       </ul>
     </div>
   </div>
