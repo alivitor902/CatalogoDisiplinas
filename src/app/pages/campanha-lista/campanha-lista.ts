@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Campanha } from '../../models/campanha.model';
-import { CampanhaService } from '../../services/campanha.service';
+import { CampanhasApiService } from '../../services/campanhas-api.service';
 
 @Component({
   selector: 'app-campanha-lista',
@@ -9,16 +9,38 @@ import { CampanhaService } from '../../services/campanha.service';
   templateUrl: './campanha-lista.html',
   styleUrl: './campanha-lista.css',
 })
-export class CampanhaLista {
+export class CampanhaLista implements OnInit {
   campanhas: Campanha[] = [];
   mensagem = '';
+  erro = '';
+  carregando = false;
+  carregamentoRealizado = false;
 
-  constructor(private campanhaService: CampanhaService) {
-    this.carregarCampanhas();
+  constructor(private campanhasApiService: CampanhasApiService) {}
+
+  ngOnInit(): void {
+    this.buscarCampanhas();
   }
 
-  carregarCampanhas(): void {
-    this.campanhas = this.campanhaService.listarCampanhas();
+  buscarCampanhas(): void {
+    this.carregando = true;
+    this.erro = '';
+    this.mensagem = '';
+    this.carregamentoRealizado = false;
+
+    this.campanhasApiService.getAll().subscribe({
+      next: (campanhas) => {
+        this.campanhas = campanhas;
+        this.carregando = false;
+        this.carregamentoRealizado = true;
+      },
+      error: () => {
+        this.campanhas = [];
+        this.erro = 'Não foi possível carregar as campanhas da API. Verifique se a API está rodando em http://localhost:3000/campanhas.';
+        this.carregando = false;
+        this.carregamentoRealizado = true;
+      },
+    });
   }
 
   excluirCampanha(campanha: Campanha): void {
@@ -28,8 +50,7 @@ export class CampanhaLista {
       return;
     }
 
-    this.campanhaService.excluirCampanha(campanha.id);
-    this.mensagem = `Campanha "${campanha.titulo}" excluída com sucesso.`;
-    this.carregarCampanhas();
+    this.campanhas = this.campanhas.filter((item) => item.id !== campanha.id);
+    this.mensagem = `Campanha "${campanha.titulo}" removida da tela com sucesso.`;
   }
 }

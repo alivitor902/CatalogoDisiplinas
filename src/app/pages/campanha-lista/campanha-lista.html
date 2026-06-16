@@ -1,10 +1,11 @@
 <section class="pagina-campanha-lista">
   <div class="cabecalho-pagina">
     <div>
-      <p class="tag-pagina">Aula 9</p>
+      <p class="tag-pagina">Aula 10</p>
       <h1>Listagem de Campanhas</h1>
       <p>
-        Esta página usa <strong>@for</strong> para exibir campanhas cadastradas e permite editar ou excluir registros.
+        Esta página busca campanhas em uma API REST usando <strong>HttpClient</strong> e exibe os estados de carregamento,
+        erro, vazio e sucesso.
       </p>
     </div>
 
@@ -13,49 +14,73 @@
     </a>
   </div>
 
-  @if (mensagem) {
+  @if (carregando) {
+    <div class="estado estado-carregando">
+      <strong>Carregando...</strong>
+      <span>Buscando campanhas na API REST.</span>
+    </div>
+  }
+
+  @if (!carregando && erro) {
+    <div class="estado estado-erro">
+      <strong>Erro ao carregar</strong>
+      <span>{{ erro }}</span>
+      <button type="button" class="botao-tentar-novamente" (click)="buscarCampanhas()">
+        Tentar novamente
+      </button>
+    </div>
+  }
+
+  @if (!carregando && !erro && carregamentoRealizado && campanhas.length === 0) {
+    <div class="estado lista-vazia">
+      <strong>Nenhuma campanha encontrada.</strong>
+      <span>A API respondeu corretamente, mas não retornou campanhas cadastradas.</span>
+    </div>
+  }
+
+  @if (!carregando && !erro && campanhas.length > 0) {
     <div class="mensagem-sucesso">
-      {{ mensagem }}
+      Campanhas carregadas com sucesso pela API REST.
     </div>
-  }
 
-  <p class="total">Total de campanhas: {{ campanhas.length }}</p>
-
-  @if (campanhas.length === 0) {
-    <div class="lista-vazia">
-      Nenhuma campanha cadastrada.
-    </div>
-  }
-
-  <div class="grade-campanhas">
-    @for (campanha of campanhas; track campanha.id) {
-      <article class="card-campanha">
-        <div class="topo-card">
-          <h2>{{ campanha.titulo }}</h2>
-
-          @if (campanha.ativa) {
-            <span class="status ativa">Ativa</span>
-          } @else {
-            <span class="status inativa">Inativa</span>
-          }
-        </div>
-
-        <p>{{ campanha.descricao }}</p>
-
-        <p class="data-limite">
-          <strong>Data limite:</strong> {{ campanha.dataLimite }}
-        </p>
-
-        <div class="acoes">
-          <a [routerLink]="['/campanha-form', campanha.id]" class="botao-editar">
-            Editar
-          </a>
-
-          <button type="button" class="botao-excluir" (click)="excluirCampanha(campanha)">
-            Excluir
-          </button>
-        </div>
-      </article>
+    @if (mensagem) {
+      <div class="mensagem-remocao">
+        {{ mensagem }}
+      </div>
     }
-  </div>
+
+    <p class="total">Total de campanhas: {{ campanhas.length }}</p>
+
+    <div class="grade-campanhas">
+      @for (campanha of campanhas; track campanha.id) {
+        <article class="card-campanha">
+          <div class="topo-card">
+            <h2>{{ campanha.titulo }}</h2>
+
+            @if (campanha.ativa) {
+              <span class="status ativa">Ativa</span>
+            } @else {
+              <span class="status inativa">Inativa</span>
+            }
+          </div>
+
+          <p>{{ campanha.descricao }}</p>
+
+          <p class="data-limite">
+            <strong>Data limite:</strong> {{ campanha.dataLimite }}
+          </p>
+
+          <div class="acoes">
+            <a [routerLink]="['/campanha-form', campanha.id]" class="botao-editar">
+              Editar
+            </a>
+
+            <button type="button" class="botao-excluir" (click)="excluirCampanha(campanha)">
+              Excluir
+            </button>
+          </div>
+        </article>
+      }
+    </div>
+  }
 </section>

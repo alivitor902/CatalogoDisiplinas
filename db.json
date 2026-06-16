@@ -1,0 +1,25 @@
+{
+  "campanhas": [
+    {
+      "id": 1,
+      "titulo": "Semana Acadêmica de Tecnologia",
+      "descricao": "Campanha para divulgar palestras e atividades da semana acadêmica.",
+      "dataLimite": "2026-07-10",
+      "ativa": true
+    },
+    {
+      "id": 2,
+      "titulo": "Inscrição em Disciplinas Optativas",
+      "descricao": "Campanha para incentivar os alunos a escolherem disciplinas optativas.",
+      "dataLimite": "2026-07-20",
+      "ativa": true
+    },
+    {
+      "id": 3,
+      "titulo": "Atualização da Grade de Interesse",
+      "descricao": "Campanha para que os alunos revisem sua grade de interesse acadêmica.",
+      "dataLimite": "2026-08-05",
+      "ativa": false
+    }
+  ]
+}

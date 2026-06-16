@@ -1,5 +1,20 @@
 # Histórico de versões
 
+## v1.10.0 - Aula 10
+
+- Configurado `provideHttpClient()` no arquivo `app.config.ts`.
+- Criado arquivo `src/app/config/api.config.ts` com a URL base da API.
+- Criado serviço `CampanhasApiService`.
+- Implementado método `getAll()` no serviço de API.
+- Atualizada a página `/campanhas` para buscar campanhas usando `HttpClient`.
+- Adicionado estado de carregamento.
+- Adicionado estado de erro quando a API não responde.
+- Adicionado estado vazio quando a API retorna uma lista sem registros.
+- Adicionado estado de sucesso quando a API retorna campanhas.
+- Criado arquivo `db.json` para simular API REST com JSON Server.
+- Adicionado script `npm run api` ao `package.json`.
+- Criado documento `docs/aula-10.md`.
+
 ## v1.9.0 - Aula 9
 
 - Criada página de listagem de campanhas com `@for`.

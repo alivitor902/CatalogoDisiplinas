@@ -7,20 +7,25 @@
       <p><strong>Aluno:</strong> ALISSON VITOR LOHN VODZICKI</p>
       <p><strong>Tema escolhido:</strong> Catálogo de Disciplinas Acadêmicas</p>
       <p><strong>Objetivo do sistema:</strong> permitir que o usuário visualize disciplinas acadêmicas e adicione matérias à grade de interesse.</p>
-      <p><strong>Tecnologias usadas:</strong> Angular, TypeScript, HTML, CSS e Reactive Forms.</p>
+      <p><strong>Tecnologias usadas:</strong> Angular, TypeScript, HTML, CSS, Reactive Forms, HttpClient e API REST.</p>
     </div>
 
     <div class="requisitos">
       <h2>Requisitos demonstrados</h2>
       <ul>
-        <li>Rotas: Home, Listagem, Favoritos e Sobre.</li>
+        <li>Rotas: Home, Listagem, Favoritos, Sobre, Campanhas e Campanha Form.</li>
         <li>Menu com navegação usando routerLink.</li>
         <li>Componente filho reutilizável para os cards.</li>
         <li>Uso de @Input() para enviar dados do pai para o filho.</li>
         <li>Uso de @Output() para enviar eventos do filho para o pai.</li>
         <li>Lista local em memória usando array de objetos.</li>
         <li>Adição, visualização e remoção de disciplinas da grade de interesse.</li>
-        <li>Formulário de campanha da Aula 8 com validações obrigatórias, tamanho mínimo e mensagens usando @if.</li>
+        <li>Formulário de campanha com validações obrigatórias, tamanho mínimo e mensagens usando @if.</li>
+        <li>Listagem de campanhas usando @for.</li>
+        <li>Rota de edição e preenchimento automático.</li>
+        <li>Configuração de provideHttpClient() para integração com API REST.</li>
+        <li>Serviço CampanhasApiService com método getAll().</li>
+        <li>Exibição dos estados carregando, erro, vazio e sucesso.</li>
       </ul>
     </div>
   </div>
