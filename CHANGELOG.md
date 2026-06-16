@@ -1,5 +1,18 @@
 # Histórico de versões
 
+## v1.12.0 - Aula 12
+
+- Criado método `create()` no `CampanhasApiService`.
+- Integrado o formulário de campanha com a API REST.
+- Implementado envio de nova campanha via `POST`.
+- Adicionado controle de loading durante o salvamento.
+- O botão de salvar passa a exibir `Salvando...` durante o envio.
+- O formulário fica desabilitado durante o POST para evitar envio duplicado.
+- Adicionado tratamento de erro quando a API não está disponível.
+- Adicionado redirecionamento automático para `/campanhas` após salvar com sucesso.
+- A rota de edição foi preservada com preenchimento por ID e atualização via API.
+- Criado documento `docs/aula-12.md`.
+
 ## v1.11.0 - Aula 11
 
 - Criada rota `/campanhas/:id`.

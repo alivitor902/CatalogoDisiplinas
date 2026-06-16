@@ -133,3 +133,21 @@ button:disabled {
     flex-direction: column;
   }
 }
+
+.mensagem-carregando {
+  background-color: #dbeafe;
+  color: #1e40af;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  font-weight: bold;
+}
+
+.mensagem-erro {
+  background-color: #fee2e2;
+  color: #991b1b;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  font-weight: bold;
+}

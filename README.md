@@ -8,7 +8,7 @@ Catálogo de Disciplinas Acadêmicas.
 
 O sistema permite visualizar disciplinas acadêmicas e adicionar disciplinas à grade de interesse do aluno.
 
-A partir das Aulas 8, 9 e 10, também foi adicionada uma área de campanhas acadêmicas com formulário, listagem, edição, exclusão e base de integração com API REST.
+A partir das Aulas 8, 9, 10, 11 e 12, também foi adicionada uma área de campanhas acadêmicas com formulário, listagem, edição, exclusão, detalhes e integração com API REST.
 
 ## Tecnologias usadas
 
@@ -28,8 +28,9 @@ A partir das Aulas 8, 9 e 10, também foi adicionada uma área de campanhas acad
 - `/favoritos` - grade de interesse
 - `/sobre` - informações do projeto
 - `/campanhas` - listagem de campanhas via API REST
-- `/campanha-form` - cadastro de campanha
-- `/campanha-form/:id` - edição de campanha
+- `/campanhas/:id` - detalhe de campanha via API REST
+- `/campanha-form` - cadastro de campanha via POST
+- `/campanha-form/:id` - formulário reutilizado com preenchimento por ID
 
 ## Funcionalidades principais
 
@@ -62,7 +63,7 @@ A partir das Aulas 8, 9 e 10, também foi adicionada uma área de campanhas acad
 - Formulário reutilizado para cadastrar e editar.
 - Rota de edição.
 - Preenchimento automático dos campos ao editar.
-- Persistência simples usando `localStorage` no formulário.
+- Persistência simples usando `localStorage` no formulário na etapa inicial da Aula 9.
 
 ### Campanhas - Aula 10
 
@@ -89,6 +90,17 @@ A partir das Aulas 8, 9 e 10, também foi adicionada uma área de campanhas acad
 - Tratamento de carregamento.
 - Tratamento de erro.
 - Adicionado botão **Detalhes** na listagem de campanhas.
+
+### Campanhas - Aula 12
+
+- Criado método `create()` no `CampanhasApiService`.
+- Formulário integrado com a API REST.
+- Envio de nova campanha via `POST`.
+- Controle de loading durante o salvamento.
+- Tratamento de erro quando a API não responde.
+- Formulário desabilitado durante o envio.
+- Redirecionamento automático para `/campanhas` após salvar.
+- A rota de edição foi preservada usando busca por ID e atualização via API.
 
 ## Como executar
 
@@ -168,6 +180,24 @@ Para testar erro, pare a API ou acesse um ID inexistente:
 http://localhost:4200/campanhas/999
 ```
 
+
+
+## Como testar a Aula 12
+
+Com a API rodando, acesse:
+
+```txt
+http://localhost:4200/campanha-form
+```
+
+Preencha os campos obrigatórios e clique em **Salvar campanha**. Durante o envio, o botão exibirá **Salvando...** e ficará desabilitado. Após sucesso, o sistema redirecionará para:
+
+```txt
+http://localhost:4200/campanhas
+```
+
+A nova campanha aparecerá na listagem carregada pela API REST. Para testar erro, pare a API e tente salvar novamente.
+
 ## Observação
 
-Na Aula 10 foi criada a base de integração REST com `getAll()`. Na Aula 11 foi adicionada a consulta por ID com `getById()`. O cadastro e a edição ainda permanecem usando a estrutura local criada nas aulas anteriores.
+Na Aula 10 foi criada a base de integração REST com `getAll()`. Na Aula 11 foi adicionada a consulta por ID com `getById()`. Na Aula 12 foi implementado o cadastro via `POST` usando `create()`, com loading, erro e redirecionamento após salvar.
