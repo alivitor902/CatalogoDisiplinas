@@ -15,4 +15,9 @@ export class CampanhasApiService {
   getAll(): Observable<Campanha[]> {
     return this.httpClient.get<Campanha[]>(this.urlCampanhas).pipe(delay(500));
   }
+
+  getById(id: number): Observable<Campanha> {
+    return this.httpClient.get<Campanha>(`${this.urlCampanhas}/${id}`).pipe(delay(500));
+  }
 }
+

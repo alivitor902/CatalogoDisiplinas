@@ -77,6 +77,19 @@ A partir das Aulas 8, 9 e 10, também foi adicionada uma área de campanhas acad
   - vazio
   - sucesso
 
+
+### Campanhas - Aula 11
+
+- Criada rota `/campanhas/:id`.
+- Criada página de detalhe da campanha.
+- Criado consumo da API REST por ID.
+- Implementado método `getById(id: number)` no `CampanhasApiService`.
+- A tela de detalhe usa `ActivatedRoute` para ler o ID da rota.
+- A exibição dos estados foi feita com `@if`.
+- Tratamento de carregamento.
+- Tratamento de erro.
+- Adicionado botão **Detalhes** na listagem de campanhas.
+
 ## Como executar
 
 Instale as dependências:
@@ -139,6 +152,22 @@ npm run api
 
 Pare a API e abra `/campanhas`. A tela exibirá a mensagem de erro informando que não foi possível carregar os dados.
 
+## Como testar a Aula 11
+
+Com a API rodando, acesse:
+
+```txt
+http://localhost:4200/campanhas/1
+```
+
+Também é possível acessar os detalhes clicando no botão **Detalhes** em qualquer campanha da listagem.
+
+Para testar erro, pare a API ou acesse um ID inexistente:
+
+```txt
+http://localhost:4200/campanhas/999
+```
+
 ## Observação
 
-Na Aula 10 foi criada a base de integração REST com `getAll()`. Como o requisito solicitado foi apenas buscar campanhas, o cadastro e a edição ainda permanecem usando a estrutura local criada nas aulas anteriores.
+Na Aula 10 foi criada a base de integração REST com `getAll()`. Na Aula 11 foi adicionada a consulta por ID com `getById()`. O cadastro e a edição ainda permanecem usando a estrutura local criada nas aulas anteriores.

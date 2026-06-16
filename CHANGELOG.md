@@ -1,5 +1,18 @@
 # Histórico de versões
 
+## v1.11.0 - Aula 11
+
+- Criada rota `/campanhas/:id`.
+- Criada página de detalhe de campanha.
+- Adicionado consumo da API REST por ID.
+- Implementado método `getById(id: number)` no `CampanhasApiService`.
+- A página de detalhe lê o parâmetro da rota usando `ActivatedRoute`.
+- Adicionada exibição com `@if`.
+- Adicionado tratamento de carregamento.
+- Adicionado tratamento de erro.
+- Adicionado botão `Detalhes` na listagem de campanhas.
+- Criado documento `docs/aula-11.md`.
+
 ## v1.10.0 - Aula 10
 
 - Configurado `provideHttpClient()` no arquivo `app.config.ts`.

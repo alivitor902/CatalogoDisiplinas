@@ -1,11 +1,10 @@
 <section class="pagina-campanha-lista">
   <div class="cabecalho-pagina">
     <div>
-      <p class="tag-pagina">Aula 10</p>
+      <p class="tag-pagina">Aula 11</p>
       <h1>Listagem de Campanhas</h1>
       <p>
-        Esta página busca campanhas em uma API REST usando <strong>HttpClient</strong> e exibe os estados de carregamento,
-        erro, vazio e sucesso.
+        Esta página busca campanhas em uma API REST usando <strong>HttpClient</strong> e permite acessar a página de detalhe por ID.
       </p>
     </div>
 
@@ -71,6 +70,10 @@
           </p>
 
           <div class="acoes">
+            <a [routerLink]="['/campanhas', campanha.id]" class="botao-detalhes">
+              Detalhes
+            </a>
+
             <a [routerLink]="['/campanha-form', campanha.id]" class="botao-editar">
               Editar
             </a>

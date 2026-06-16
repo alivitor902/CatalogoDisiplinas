@@ -5,6 +5,7 @@ import { Interesses } from './pages/interesses/interesses';
 import { Sobre } from './pages/sobre/sobre';
 import { CampanhaForm } from './pages/campanha-form/campanha-form';
 import { CampanhaLista } from './pages/campanha-lista/campanha-lista';
+import { CampanhaDetalhe } from './pages/campanha-detalhe/campanha-detalhe';
 
 export const routes: Routes = [
   {
@@ -31,6 +32,10 @@ export const routes: Routes = [
   {
     path: 'campanhas',
     component: CampanhaLista,
+  },
+  {
+    path: 'campanhas/:id',
+    component: CampanhaDetalhe,
   },
   {
     path: 'campanha-form',
